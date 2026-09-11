@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace = "com.example.tarea"
-    compileSdk = 35
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.example.tarea"

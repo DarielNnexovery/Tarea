@@ -38,23 +38,22 @@
             android:layout_height="wrap_content"/>
 
         <ImageView
-            android:id="@+id/ivActualizar"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ic_editar"
-            android:layout_width="40dp"
-            android:layout_height="25dp"/>
-        
-        
-        <ImageView
             android:id="@+id/ivEliminar"
             android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
             android:src="@drawable/outline_ad_off_24"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="4dp"/>
 
-
-
-            />
+        <ImageView
+            android:id="@+id/ivActualizar"
+            android:layout_toStartOf="@id/ivEliminar"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_editar"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="4dp"/>
     </RelativeLayout>
 </com.google.android.material.card.MaterialCardView>

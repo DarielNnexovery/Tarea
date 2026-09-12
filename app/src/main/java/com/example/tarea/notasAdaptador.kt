@@ -1,12 +1,13 @@
 package com.example.tarea
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
-import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.view.menu.MenuView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 class notasAdaptador(
@@ -25,9 +26,21 @@ class notasAdaptador(
         holder: NotaViewHolder,
         position: Int
     ) {
-val nota = notas [position]
+        val nota = notas[position]
         holder.itemTitulo.text = nota.titulo
         holder.itemDescripcion.text = nota.description
+
+        holder.ivActualizar.setOnClickListener {
+            val intent = Intent(holder.itemView.context, ActualizarNotaActivity::class.java).apply {
+                putExtra("nota_id", nota.id)
+            }
+            holder.itemView.context.startActivity(intent)
+            Toast.makeText(
+                holder.itemView.context,
+                "el id de la nota seleccionada ${nota.id} ",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
     }
 
     override fun getItemCount(): Int {
@@ -37,7 +50,7 @@ val nota = notas [position]
     class NotaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val itemTitulo : TextView = itemView.findViewById(R.id.item_titulo)
         val itemDescripcion : TextView = itemView.findViewById(R.id.item_descripcion)
-
+        val ivActualizar : ImageView = itemView.findViewById(R.id.ivActualizar)
 
 
     }

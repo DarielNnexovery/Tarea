@@ -27,11 +27,20 @@ class AgregarNota : AppCompatActivity() {
         binding.ivGuardarNota.setOnClickListener {
             val titulo = binding.etTitulo.text.toString()
             val description =binding.etDescripcion.text.toString()
-            val nota = Nota(0, titulo , description)
-            db.insertNota(nota)
-            startActivity(Intent(applicationContext, MainActivity::class.java))
-            finishAffinity()
-            Toast.makeText(applicationContext, "se ha agregado la nota", Toast.LENGTH_SHORT).show()
+
+            if (!titulo.isEmpty() && !description.isEmpty()){
+                guardarNota(titulo, description)
+            }else{
+                Toast.makeText(applicationContext, "Pls Llenar los campos", Toast.LENGTH_SHORT).show()
+            }
         }
+    }
+
+    private fun guardarNota(titulo : String, description : String){
+        val nota = Nota(0, titulo , description)
+        db.insertNota(nota)
+        startActivity(Intent(applicationContext, MainActivity::class.java))
+        finishAffinity()
+        Toast.makeText(applicationContext, "se ha agregado la nota", Toast.LENGTH_SHORT).show()
     }
 }

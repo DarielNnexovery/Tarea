@@ -7,16 +7,41 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/txtNotas"
+        android:text="@string/txtNotas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="15dp"
+        android:textColor="@color/morado"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/notasRs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/txtNotas"
+        android:layout_marginTop="-1dp"
+        android:padding="15dp"
+        tools:listitem="@layout/item_nota"/>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/FABAgregarNota"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="19dp"
         android:backgroundTint="@color/morado"
-        app:tint= "@color/white"
-        android:src="@drawable/ic_agregar_nota" />
+        android:src="@drawable/ic_agregar_nota"
+        app:tint="@color/white" />
 </RelativeLayout>

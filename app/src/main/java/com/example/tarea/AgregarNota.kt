@@ -1,6 +1,5 @@
 package com.example.tarea
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -39,8 +38,7 @@ class AgregarNota : AppCompatActivity() {
     private fun guardarNota(titulo : String, description : String){
         val nota = Nota(0, titulo , description)
         db.insertNota(nota)
-        startActivity(Intent(applicationContext, MainActivity::class.java))
-        finishAffinity()
+        finish()
         Toast.makeText(applicationContext, "se ha agregado la nota", Toast.LENGTH_SHORT).show()
     }
 }

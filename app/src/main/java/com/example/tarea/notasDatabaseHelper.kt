@@ -59,7 +59,7 @@ class NotasDatabaseHelper (context: Context) : SQLiteOpenHelper(
             val titulo = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE))
             val descripcion =cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DESCRIPTION))
             val nota = Nota(id, titulo, descripcion)
-
+            listaNotas.add(nota)
         }
         cursor.close()
         db.close()

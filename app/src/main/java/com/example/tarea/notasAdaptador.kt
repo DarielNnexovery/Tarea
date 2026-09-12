@@ -14,6 +14,10 @@ class notasAdaptador(
     private var notas : List<Nota>,
     context: Context
 ) : RecyclerView.Adapter<notasAdaptador.NotaViewHolder>() {
+
+
+    private val db : NotasDatabaseHelper = NotasDatabaseHelper(context)
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -27,6 +31,12 @@ class notasAdaptador(
         position: Int
     ) {
         val nota = notas[position]
+        holder.ivEliminar.setOnClickListener {
+            db.deleteNota(nota.id)
+            refrescarLista(db.getAllNotas())
+            Toast.makeText(holder.itemView.context, "Nota eliminada", Toast.LENGTH_SHORT).show()
+        }
+        
         holder.itemTitulo.text = nota.titulo
         holder.itemDescripcion.text = nota.description
 
@@ -51,7 +61,7 @@ class notasAdaptador(
         val itemTitulo : TextView = itemView.findViewById(R.id.item_titulo)
         val itemDescripcion : TextView = itemView.findViewById(R.id.item_descripcion)
         val ivActualizar : ImageView = itemView.findViewById(R.id.ivActualizar)
-
+        val  ivEliminar : ImageView = itemView.findViewById(R.id.ivEliminar)
 
     }
     fun refrescarLista (nuevaNota : List<Nota>){

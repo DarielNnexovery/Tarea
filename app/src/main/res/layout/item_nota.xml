@@ -42,7 +42,19 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:src="@drawable/ic_editar"
-            android:layout_width="25dp"
+            android:layout_width="40dp"
             android:layout_height="25dp"/>
+        
+        
+        <ImageView
+            android:id="@+id/ivEliminar"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/outline_ad_off_24"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+
+
+
+            />
     </RelativeLayout>
 </com.google.android.material.card.MaterialCardView>

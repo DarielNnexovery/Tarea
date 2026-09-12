@@ -1,6 +1,5 @@
 package com.example.tarea
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -48,20 +47,11 @@ class ActualizarNotaActivity : AppCompatActivity() {
             if (nuevoTitulo.isNotEmpty() && nuevaDescripcion.isNotEmpty()) {
                 val notaActualizada = Nota(notaId, nuevoTitulo, nuevaDescripcion)
                 db.updateNota(notaActualizada)
-                Toast.makeText(this, "Nota actualizada", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "La nota se ha actualizado con éxito", Toast.LENGTH_SHORT).show()
                 finish()
             } else {
                 Toast.makeText(this, "Por favor llenar los campos", Toast.LENGTH_SHORT).show()
             }
-        }
-        binding.ivActualizarNota.setOnClickListener {
-            val tituloNuevo = binding.etTitulo.text.toString()
-            val descripcionNuevo = binding.etDescripcion.text.toString()
-            val notaActualizada = Nota (notaId, tituloNuevo ,descripcionNuevo)
-            db.updateNota(notaActualizada)
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
-            Toast.makeText(this, "La nota se ha actualizado con exito", Toast.LENGTH_SHORT).show()
         }
     }
 }
